@@ -1,29 +1,19 @@
-//Login screen
-import { useState } from 'react';
+//ForgotPassWord screen
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 import AuthButton from '../styles/custom buttons/AuthButton'
 import COLORS from '../styles/colors';
 
 
-function Login() {
-    const [showPassword, setShowPassword] = useState(false)
+function ForgotPassword() {
+
     return (
         <View style={styles.containerStyle}>
             <View style={styles.titleContainer}>
-                <Text style={styles.titleStyle}>Login</Text>
+                <Text style={styles.titleStyle}>Olvide mi password</Text>
             </View>
-
             <TextInput style={styles.inputStyle} placeholder='Email' />
-            <View>
-                <TextInput style={styles.inputStyle} placeholder='Password' secureTextEntry={!showPassword} />
-                <Pressable style={styles.showPasswordText} >
-                    <Text style={styles.textColor} title={showPassword ? 'Hide Password' : 'Show Password'}
-                        onPress={() => setShowPassword(!showPassword)} > Show </Text>
-                </Pressable>
-            </View>
             <AuthButton>
-                Login
+                Enviar
             </AuthButton>
             <Pressable >
                 <View style={styles.passwordContainer}>
@@ -57,20 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
     },
-    textColor: {
-        color: 'red',
-        fontWeight: 'bold',
-        fontSize: 18
-    },
-    showPasswordText: {
-        position: 'absolute',
-        right: 18,
-        bottom: 26,
-    },
-    checkboxStyle: {
-        justifyContent: 'flex-start',
-        paddingLeft: 14
-    },
+
     passwordContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -83,4 +60,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Login;
+export default ForgotPassword;
