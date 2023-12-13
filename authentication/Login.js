@@ -6,8 +6,14 @@ import AuthButton from '../styles/custom buttons/AuthButton'
 import COLORS from '../styles/colors';
 
 
-function Login() {
+function Login({ navigation }) {
     const [showPassword, setShowPassword] = useState(false)
+
+    //poner el login luego que haga las otras visas
+    function forgotPasswordNavigateHandler() {
+        navigation.navigate('ForgotPassword')
+    }
+
     return (
         <View style={styles.containerStyle}>
             <View style={styles.titleContainer}>
@@ -25,7 +31,7 @@ function Login() {
             <AuthButton>
                 Login
             </AuthButton>
-            <Pressable >
+            <Pressable onPress={forgotPasswordNavigateHandler}>
                 <View style={styles.passwordContainer}>
                     <Text style={styles.passwordStyle}>Olvidaste tu password?</Text>
                 </View>

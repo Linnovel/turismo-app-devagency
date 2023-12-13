@@ -1,28 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import Register from './authentication/Register';
 import Login from './authentication/Login';
 import ForgotPassword from './authentication/ForgotPassword';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        {/* <Register /> */}
-        {/* <Login /> */}
-        <ForgotPassword />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Register'>
+          <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} />
+          <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{ headerShown: false }} />
+        </Stack.Navigator>
         <StatusBar style="auto" />
-      </SafeAreaView>
+      </NavigationContainer>
     </>
 
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: StatusBar.currentWeight
-  },
-
-});

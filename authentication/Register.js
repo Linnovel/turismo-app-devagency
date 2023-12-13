@@ -5,17 +5,26 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import AuthButton from '../styles/custom buttons/AuthButton'
 import COLORS from '../styles/colors';
 
+export default function Register({ navigation }) {
+    const [showPassword, setShowPassword] = useState(false);
 
-export default function Register() {
-    const [showPassword, setShowPassword] = useState(false)
+    function loginNavigateHandler() {
+        navigation.navigate('Login')
+    }
+    function forgotPasswordNavigateHandler() {
+        navigation.navigate('ForgotPassword')
+    }
+
+
+
     return (
         <View style={styles.containerStyle}>
             <View style={styles.titleContainer}>
                 <Text style={styles.titleStyle}>Registro</Text>
             </View>
-            <View>
+            <Pressable onPress={loginNavigateHandler}>
                 <Text style={styles.loginStyle}>Login</Text>
-            </View>
+            </Pressable>
             <TextInput style={styles.inputStyle} placeholder='Name' />
             <TextInput style={styles.inputStyle} placeholder='Email' />
             <View>
@@ -28,10 +37,10 @@ export default function Register() {
             <View style={styles.checkboxStyle}>
                 <BouncyCheckbox text='Me gustaria recibir emails de la aplicacion' fillColor="#F6F6F6" />
             </View>
-            <AuthButton>
+            <AuthButton onPress={loginNavigateHandler}>
                 Registrate
             </AuthButton>
-            <Pressable >
+            <Pressable onPress={forgotPasswordNavigateHandler}>
                 <View style={styles.passwordContainer}>
                     <Text style={styles.passwordStyle}>Olvidaste tu password?</Text>
                 </View>
