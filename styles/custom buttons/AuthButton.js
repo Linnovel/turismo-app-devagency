@@ -1,14 +1,14 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, Pressable } from 'react-native'
 import COLORS from '../../styles/colors'
 
-function AuthButton({ children }) {
+function AuthButton({ children, onPress }) {
 
     return (
-        <TouchableOpacity >
+        <Pressable onPress={onPress} >
             <View style={styles.container}>
                 <Text style={styles.buttonContainer}>{children}</Text>
             </View>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 
