@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Register from './authentication/Register';
@@ -10,16 +11,23 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='Register'>
-          <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} />
-          <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{ headerShown: false }} />
-        </Stack.Navigator>
-        <StatusBar style="auto" />
-      </NavigationContainer>
+      <SafeAreaView style={styles.containerSafeAreaView}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName='Register'>
+            <Stack.Screen name='Register' component={Register} />
+            <Stack.Screen name='Login' component={Login} />
+            <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
+          </Stack.Navigator>
+          <StatusBar style="auto" />
+        </NavigationContainer>
+      </SafeAreaView>
     </>
 
   );
 }
 
+const styles = StyleSheet.create({
+  containerSafeAreaView: {
+    flex: 1,
+  }
+})
