@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function card() {
+export default function FaltaPorDefinirScreen() {
     return (
         <View>
-            <Text>card</Text>
+            <Text>FaltaPorDefinirScreen</Text>
         </View>
     )
 }

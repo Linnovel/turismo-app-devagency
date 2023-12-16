@@ -9,9 +9,11 @@ import COLORS from '../styles/colors';
 function Login({ navigation }) {
     const [showPassword, setShowPassword] = useState(false)
 
-    //poner el login luego que haga las otras visas
     function forgotPasswordNavigateHandler() {
         navigation.navigate('ForgotPassword')
+    }
+    function mainIndexHandler() {
+        navigation.navigate('MainIndexScreen')
     }
 
     return (
@@ -28,7 +30,7 @@ function Login({ navigation }) {
                         onPress={() => setShowPassword(!showPassword)} > Show </Text>
                 </Pressable>
             </View>
-            <AuthButton>
+            <AuthButton onPress={mainIndexHandler}>
                 Login
             </AuthButton>
             <Pressable onPress={forgotPasswordNavigateHandler}>
