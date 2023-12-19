@@ -7,6 +7,7 @@ import Register from './authentication/Register';
 import Login from './authentication/Login';
 import ForgotPassword from './authentication/ForgotPassword';
 import MainIndexScreen from './screens/MainIndexScreen';
+import EstablishmentScreen from './screens/EstablishmentScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
             <Stack.Screen name='Login' component={Login} />
             <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
             <Stack.Screen name='MainIndexScreen' component={MainIndexScreen} options={({ headerShown: false })} />
+            <Stack.Screen name='EstablishmentScreen' component={EstablishmentScreen} options={({ headerShown: false })} />
           </Stack.Navigator>
           <StatusBar style="auto" />
         </NavigationContainer>

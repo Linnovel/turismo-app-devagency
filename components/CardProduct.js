@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     moreExampleStyle: {
         position: 'absolute',
         right: 8,
-        top: 13,
+        top: 140,
     },
     subTitleStyle: {
         color: COLORS.primary
