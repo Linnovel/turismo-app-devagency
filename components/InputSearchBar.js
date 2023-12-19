@@ -17,7 +17,7 @@ export default function InputSearchBar() {
                 <Ionicons name="search-outline" size={24} color="black" />
             </View>
             <FilterTypesLocation />
-            <CardProduct />
+            <CardProduct title="Popular" />
         </View>
     )
 }
