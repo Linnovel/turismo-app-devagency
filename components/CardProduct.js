@@ -37,7 +37,7 @@ const categoriesHotels = [
     },
 ];
 
-export default function CardProduct() {
+export default function CardProduct({ title }) {
     //renderitem for the flatlist
     const renderItem = ({ item }) => {
         return (
@@ -69,20 +69,16 @@ export default function CardProduct() {
 
     return (
         <>
-            <View >
-                <View>
-                    <Text style={styles.mainTitle}>Popular</Text>
-                </View>
-                <View style={styles.moreExampleStyle}>
-                    <Text style={styles.subTitleStyle}>See all</Text>
-                </View>
-                <FlatList
-                    data={categoriesHotels}
-                    keyExtractor={(item) => item.id}
-                    renderItem={renderItem}
-                    horizontal
-                />
+            <Text style={styles.mainTitle}>{title}</Text>
+            <View style={styles.moreExampleStyle}>
+                <Text style={styles.subTitleStyle}>See all</Text>
             </View>
+            <FlatList
+                data={categoriesHotels}
+                keyExtractor={(item) => item.id}
+                renderItem={renderItem}
+                horizontal
+            />
         </>
     )
 }
@@ -93,7 +89,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     contanerImage: {
-        margin: 10
+        margin: 6
     },
     moreExampleStyle: {
         position: 'absolute',
@@ -157,6 +153,6 @@ const styles = StyleSheet.create({
     containerFavorite: {
         position: 'absolute',
         right: 20,
-        bottom: 26
+        bottom: 20
     }
 })

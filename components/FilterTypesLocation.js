@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
         color: COLORS.primary
     },
     container: {
-        padding: 4
+        padding: 6
     }
 });
