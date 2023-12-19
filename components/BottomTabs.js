@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Foundation } from "@expo/vector-icons";
 
@@ -39,21 +39,24 @@ export default function BottomTabs() {
     };
     return (
         <>
-            <Tab.Navigator
+            <Tab.Navigator sty
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ color }) =>
                         tabBarIconConfig[route.name].component({ color, size: 24 }),
                     tabBarShowLabel: false,
                     headerShown: false,
+
                     tabBarStyle: {
                         backgroundColor: "#FBFBFB",
+                        position: 'absolute',
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
                         margin: 1,
-                        height: 45
+                        height: 50,
                     },
                     tabBarActiveTintColor: COLORS.primary,
                     tabBarInactiveTintColor: "gray",
+
                 })}
             >
                 <Tab.Screen name="HomeScreen" component={HomeScreen} />
@@ -68,4 +71,9 @@ export default function BottomTabs() {
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        position: 'absolute',
+        bottom: 0
+    }
+});
