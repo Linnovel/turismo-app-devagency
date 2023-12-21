@@ -1,5 +1,5 @@
 import { ScrollView } from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react';
 import BottomTabs from '../components/BottomTabs';
 import HeadersContainers from '../components/HeadersContainers';
 import RecommendedSection from '../components/RecommendedSection';
@@ -11,10 +11,14 @@ import RecommendedSection from '../components/RecommendedSection';
 
 function MainIndexScreen() {
 
+
+
     return (
         <>
-            <HeadersContainers mainTitle="Explora" subTitle="Margarita" />
-            <RecommendedSection mainTitle="Recommended" />
+            <ScrollView bounces={true} decelerationRate="fast">
+                <HeadersContainers mainTitle="Explora" subTitle="Margarita" />
+                <RecommendedSection mainTitle="Recommended" />
+            </ScrollView>
             <BottomTabs />
         </>
     )

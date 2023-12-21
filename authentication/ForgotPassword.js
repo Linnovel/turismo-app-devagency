@@ -1,7 +1,7 @@
 //ForgotPassWord screen
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
-import AuthButton from '../styles/custom buttons/AuthButton'
 import COLORS from '../styles/colors';
+import AuthButton from '../styles/custom buttons/AuthButton';
 
 
 function ForgotPassword() {

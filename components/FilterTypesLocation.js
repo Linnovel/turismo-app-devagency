@@ -51,13 +51,14 @@ const styles = StyleSheet.create({
     ovalContainer: {
         borderRadius: 45,
         backgroundColor: COLORS.inputColorPrimary,
-        padding: 14,
-        margin: 4,
+        paddingTop: 16,
+        paddingBottom: 14,
+        paddingHorizontal: 16
     },
     textStyles: {
         color: COLORS.primary
     },
     container: {
-        padding: 6
+        padding: 12
     }
 });
