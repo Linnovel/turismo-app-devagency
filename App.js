@@ -8,6 +8,10 @@ import Login from './authentication/Login';
 import ForgotPassword from './authentication/ForgotPassword';
 import MainIndexScreen from './screens/MainIndexScreen';
 import EstablishmentScreen from './screens/EstablishmentScreen'
+import CardProduct from './components/CardProduct';
+import BlogPost from './screens/BlogPost';
+import CalendarScreen from './screens/CalendarScreen';
+import ReserveConfirmationScreen from './screens/ReserveConfirmationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +28,11 @@ export default function App() {
             <Stack.Screen name='Login' component={Login} />
             <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
             <Stack.Screen name='MainIndexScreen' component={MainIndexScreen} options={({ headerShown: false })} />
+            <Stack.Screen name='CardProduct' component={CardProduct} options={({ headerShown: false })} />
             <Stack.Screen name='EstablishmentScreen' component={EstablishmentScreen} options={({ headerShown: false })} />
+            <Stack.Screen name='BlogPost' component={BlogPost} options={({ headerShown: false })} />
+            <Stack.Screen name='CalendarScreen' component={CalendarScreen} options={({ headerShown: false })} />
+            <Stack.Screen name='ReserveConfirmationScreen' component={ReserveConfirmationScreen} options={({ headerShown: false })} />
           </Stack.Navigator>
           <StatusBar style="auto" />
         </NavigationContainer>

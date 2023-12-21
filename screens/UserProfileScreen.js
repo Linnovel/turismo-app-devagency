@@ -3,10 +3,19 @@ import React from 'react'
 
 export default function UserProfileScreen() {
     return (
-        <View>
-            <Text>UserProfileScreen</Text>
+        <View style={styles.container}>
+            <Text style={styles.textStyle}>Name</Text>
         </View>
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textStyle: {
+        fontSize: 28,
+        fontWeight: 'bold'
+    }
+})

@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Foundation } from "@expo/vector-icons";
 
@@ -9,6 +8,8 @@ import UserProfileScreen from "../screens/UserProfileScreen";
 import COLORS from "../styles/colors";
 
 const Tab = createBottomTabNavigator();
+
+//agregar bottom tabs a la navegacion principal
 
 export default function BottomTabs() {
     const tabBarIconConfig = {
@@ -71,9 +72,3 @@ export default function BottomTabs() {
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-        bottom: 0
-    }
-});
