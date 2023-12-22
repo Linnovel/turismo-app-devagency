@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Text, View, ScrollView, StyleSheet } from 'react-native'
+import HeadersContainers from '../components/HeadersContainers';
+import RecommendedSection from '../components/RecommendedSection';
 
 export default function HomeScreen() {
     return (
-        <View>
-        </View>
+        <>
+            <HeadersContainers mainTitle="Explora" subTitle="Margarita" />
+            <RecommendedSection mainTitle="Recommended" />
+        </>
     )
 }
 
-const styles = StyleSheet.create({})
