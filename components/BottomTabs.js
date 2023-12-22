@@ -40,7 +40,8 @@ export default function BottomTabs() {
     };
     return (
         <>
-            <Tab.Navigator sty
+            <Tab.Navigator
+                sty
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ color }) =>
                         tabBarIconConfig[route.name].component({ color, size: 24 }),
@@ -49,7 +50,7 @@ export default function BottomTabs() {
 
                     tabBarStyle: {
                         backgroundColor: "#FBFBFB",
-                        position: 'absolute',
+                        position: "absolute",
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
                         margin: 1,
@@ -57,7 +58,6 @@ export default function BottomTabs() {
                     },
                     tabBarActiveTintColor: COLORS.primary,
                     tabBarInactiveTintColor: "gray",
-
                 })}
             >
                 <Tab.Screen name="HomeScreen" component={HomeScreen} />
@@ -71,4 +71,3 @@ export default function BottomTabs() {
         </>
     );
 }
-

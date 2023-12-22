@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { Calendar } from 'react-native-calendars'
-import BottomTabs from '../components/BottomTabs'
 import COLORS from '../styles/colors'
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -31,7 +30,6 @@ export default function CalendarScreen() {
                     </TouchableOpacity>
                 </View>
             </View>
-            <BottomTabs />
         </>
     )
 }
