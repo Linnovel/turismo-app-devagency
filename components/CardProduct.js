@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, Pressable, Dimensions } from 'react-native'
 import COLORS from '../styles/colors'
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { hotel } from '../assets/images/hotelimage.jpeg'
+import { useNavigation } from '@react-navigation/native';
 
 const categoriesHotels = [
     {
@@ -37,41 +38,51 @@ const categoriesHotels = [
     },
 ];
 
-export default function CardProduct({ title }) {
+export default function CardProduct({ title, seeAll }) {
+
+    const navigation = useNavigation()
+
+    function handleEstablishmentScreen() {
+        navigation.navigate('EstablishmentScreen')
+    }
+
     //renderitem for the flatlist
     const renderItem = ({ item }) => {
         return (
             <>
-                <Pressable>
+                <Pressable onPress={handleEstablishmentScreen}>
                     <View style={styles.contanerImage}>
                         <Image source={require('../assets/images/hotelimage.jpeg')} style={styles.imageContainer} />
                     </View>
-                    <View style={styles.containerTitleCard}>
-                        <View style={styles.ovalContainer}>
-                            <Text style={styles.ovalTextStyle}>{item.title}</Text>
-                        </View>
-                    </View>
-                    <View style={styles.secondOval}>
-                        <View style={styles.circleContainer}>
-                            <AntDesign name="star" size={16} color="yellow" />
-                            <Text style={styles.ovalTextStyle}>{item.reviews}</Text>
-                        </View>
-                    </View>
-                    <View style={styles.containerFavorite}>
-                        <View style={styles.whiteCircle}>
-                            <Ionicons name="heart" size={16} color={COLORS.primary} />
-                        </View>
-                    </View>
                 </Pressable>
+                <View style={styles.containerTitleCard}>
+                    <View style={styles.ovalContainer}>
+                        <Text style={styles.ovalTextStyle}>{item.title}</Text>
+                    </View>
+                </View>
+                <View style={styles.secondOval}>
+                    <View style={styles.circleContainer}>
+                        <AntDesign name="star" size={16} color="yellow" />
+                        <Text style={styles.ovalTextStyle}>{item.reviews}</Text>
+                    </View>
+                </View>
+                <View style={styles.containerFavorite}>
+                    <View style={styles.whiteCircle}>
+                        <Ionicons name="heart" size={16} color={COLORS.primary} />
+                    </View>
+                </View>
             </>
         );
     };
 
+
+
+
     return (
         <>
-            <Text style={styles.mainTitle}>{title}</Text>
-            <View style={styles.moreExampleStyle}>
-                <Text style={styles.subTitleStyle}>See all</Text>
+            <View style={styles.containerMainTitle}>
+                <Text style={styles.mainTitle}>{title}</Text>
+                <Text style={styles.subTitleStyle}>{seeAll}</Text>
             </View>
             <FlatList
                 data={categoriesHotels}
@@ -83,31 +94,42 @@ export default function CardProduct({ title }) {
     )
 }
 
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
+    containerMainTitle: {
+        paddingHorizontal: 18,
+        paddingBottom: 14,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
     mainTitle: {
         fontSize: 26,
         fontWeight: 'bold'
     },
     contanerImage: {
-        margin: 6
-    },
-    moreExampleStyle: {
-        position: 'absolute',
-        right: 8,
-        top: 13,
+        width: deviceWidth < 365 ? 150 : 225,
+        height: deviceHeight < 365 ? 180 : 230,
+        paddingLeft: 30,
+        gap: 2,
     },
     subTitleStyle: {
-        color: COLORS.primary
+        color: COLORS.primary,
+        fontWeight: 'bold'
     },
     imageContainer: {
-        width: 190,
-        height: 225,
-        borderRadius: 15
+        maxWidth: '100%',
+        maxHeight: '100%',
+        borderRadius: deviceWidth < 365 ? 7 : 18,
+        overflow: 'hidden',
+        resizeMode: 'cover'
     },
     containerTitleCard: {
         position: 'absolute',
         top: 140,
-        left: 16
+        left: 32
     },
     ovalContainer: {
         borderRadius: 45,
@@ -141,11 +163,11 @@ const styles = StyleSheet.create({
     secondOval: {
         position: 'absolute',
         top: 180,
-        left: 16,
+        left: 32,
     },
     whiteCircle: {
-        width: 30,
-        height: 30,
+        width: deviceWidth < 360 ? 15 : 30,
+        height: deviceHeight < 360 ? 15 : 30,
         borderRadius: 30 / 2,
         backgroundColor: "white",
         padding: 6
@@ -153,6 +175,6 @@ const styles = StyleSheet.create({
     containerFavorite: {
         position: 'absolute',
         right: 20,
-        bottom: 20
+        bottom: 12
     }
 })
