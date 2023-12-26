@@ -13,7 +13,7 @@ function Login({ navigation }) {
         navigation.navigate('ForgotPassword')
     }
     function mainIndexHandler() {
-        navigation.navigate('MainIndexScreen')
+        navigation.navigate('BottomTabNavigatior')
     }
 
     return (
