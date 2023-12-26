@@ -5,12 +5,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 
-
+//imports bottoTabs
 import HomeScreen from './screens/HomeScreen';
 import FaltaPorDefinirScreen from './screens/FaltaPorDefinirScreen';
 import UserFavoriteScreen from './screens/UserFavoriteScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 
+//import Stack.screen
 import Register from './authentication/Register';
 import Login from './authentication/Login';
 import ForgotPassword from './authentication/ForgotPassword';
