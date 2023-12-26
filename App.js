@@ -26,36 +26,41 @@ const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator()
 
 
+
 function BottomTabNavigatior() {
-  return (<BottomTabs.Navigator screenOptions={{
-    tabBarActiveTintColor: COLORS.primary,
-    headerStyle: { backgroundColor: COLORS.primary },
-    headerTintColor: 'white'
-  }}>
-    <BottomTabs.Screen name='HomeScreen' component={HomeScreen} options={{
-      title: 'Home',
-      tabBarLabel: 'Home',
-      headerShown: false,
-      tabBarIcon: ({ color, size }) => (<Ionicons name="home" size={size} color={color} />)
-    }}
-    />
-    <BottomTabs.Screen name='FaltaPorDefinirScreen' component={FaltaPorDefinirScreen} options={{
-      title: 'Travel',
-      tabBarLabel: 'Vacation',
-      tabBarIcon: ({ color, size }) => (<Ionicons name="airplane" size={size} color={color} />)
-    }} />
-    <BottomTabs.Screen name='UserFavoriteScreen' component={UserFavoriteScreen} options={{
-      title: 'Favorite',
-      tabBarLabel: 'Favorite',
-      tabBarIcon: ({ color, size }) => (<Ionicons name="heart" size={size} color={color} />)
-    }} />
-    <BottomTabs.Screen name='UserProfileScreen' component={UserProfileScreen} options={{
-      title: 'User',
-      tabBarLabel: 'Profile',
-      tabBarIcon: ({ color, size }) => (<Ionicons name="body-sharp" size={size} color={color} />)
-    }} />
-  </BottomTabs.Navigator>)
+  return (
+    <BottomTabs.Navigator screenOptions={{
+      tabBarActiveTintColor: COLORS.primary,
+      headerStyle: { backgroundColor: COLORS.primary },
+      headerTintColor: 'white'
+    }}>
+      <BottomTabs.Screen name='HomeScreen' component={HomeScreen} options={{
+        title: 'Home',
+        tabBarLabel: 'Home',
+        headerShown: false,
+        tabBarIcon: ({ color, size }) => (<Ionicons name="home" size={size} color={color} />)
+      }}
+      />
+      <BottomTabs.Screen name='FaltaPorDefinirScreen' component={FaltaPorDefinirScreen} options={{
+        title: 'Travel',
+        tabBarLabel: 'Vacation',
+        tabBarIcon: ({ color, size }) => (<Ionicons name="airplane" size={size} color={color} />)
+      }} />
+      <BottomTabs.Screen name='UserFavoriteScreen' component={UserFavoriteScreen} options={{
+        title: 'Favorite',
+        tabBarLabel: 'Favorite',
+        tabBarIcon: ({ color, size }) => (<Ionicons name="heart" size={size} color={color} />)
+      }} />
+      <BottomTabs.Screen name='UserProfileScreen' component={UserProfileScreen} options={{
+        title: 'User',
+        tabBarLabel: 'Profile',
+        tabBarIcon: ({ color, size }) => (<Ionicons name="body-sharp" size={size} color={color} />)
+      }} />
+    </BottomTabs.Navigator>
+  )
 }
+
+
 
 export default function App() {
 

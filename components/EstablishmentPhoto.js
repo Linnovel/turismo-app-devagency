@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,7 +9,7 @@ export default function EstablishmentPhoto() {
     const navigation = useNavigation()
 
     function handleEstablishmentScreen() {
-        navigation.navigate('MainIndexScreen')
+        navigation.navigate('BottomTabNavigatior')
     }
     return (
         <>
@@ -20,9 +20,9 @@ export default function EstablishmentPhoto() {
                 />
             </View>
             <View style={styles.iconContainer} />
-            <TouchableOpacity style={styles.iconStyle} onPress={handleEstablishmentScreen}>
+            <Pressable android_ripple={{ color: 'white' }} style={styles.iconStyle} onPress={handleEstablishmentScreen}>
                 <MaterialIcons name="keyboard-arrow-left" size={24} color={COLORS.primary} />
-            </TouchableOpacity>
+            </Pressable>
             <View style={styles.containerFavorite}>
                 <View style={styles.whiteCircle}>
                     <Ionicons name="heart" size={24} color={COLORS.primary} />
@@ -39,8 +39,8 @@ const deviceWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
 
     imageContainer: {
-        width: '100%',
-        height: '52%',
+        width: deviceWidth < 365 ? '85%' : 395,
+        height: deviceHeight < 365 ? '50%' : 395,
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 20,

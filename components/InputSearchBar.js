@@ -1,14 +1,15 @@
+//importanciones nativas 
 import { StyleSheet, View, TextInput, Dimensions } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../styles/colors'
 
+//importanciones de componenetes
 import CardProduct from './CardProduct';
 import FilterTypesLocation from './FilterTypesLocation';
 
 
 
 export default function InputSearchBar() {
-
 
     return (
         <>

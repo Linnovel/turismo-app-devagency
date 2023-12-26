@@ -43,7 +43,6 @@ export default function RecommendedSection({ mainTitle }) {
                     <View style={styles.styleCard} >
                         <Text>{item.title}</Text>
                     </View>
-
                 </View>
                 <View style={styles.imageContainer}>
                     <Image resizeMode='cover' source={item.image} style={styles.styleImageContainer} />
