@@ -1,14 +1,10 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-//pasar pros con titulos y refactorizar
+//pasar pros con titulos y refactorizar las imagenes 
 
 export default function BlogPostPhoto() {
-    const navigation = useNavigation()
 
-    function handleEstablishmentScreen() {
-        navigation.navigate('MainIndexScreen')
-    }
+
     return (
         <>
             <View style={styles.imageContainer}>
