@@ -25,7 +25,7 @@ export default function EstablishmentPhoto() {
             </Pressable>
             <View style={styles.containerFavorite}>
                 <View style={styles.whiteCircle}>
-                    <Ionicons name="heart" size={24} color={COLORS.primary} />
+                    <Ionicons name="heart" size={24} color={COLORS.primary} style={styles.heartStyle} />
                 </View>
             </View>
             <EstablishmentDescription title="Hotel de pruebas" review="4.5(355 Reviews)" />
@@ -37,21 +37,21 @@ const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
-
     imageContainer: {
-        width: deviceWidth < 365 ? '85%' : 395,
-        height: deviceHeight < 365 ? '50%' : 395,
-        alignItems: 'center',
+        width: deviceWidth < 375 ? 245 : 365,
+        height: deviceHeight < 375 ? 240 : 365,
+        paddingTop: deviceWidth < 375 ? 8 : 20,
+        paddingLeft: 10,
+        paddingHorizontal: 2,
         justifyContent: 'center',
-        paddingTop: 20,
-        paddingBottom: 12,
-        paddingHorizontal: 12
+        alignItems: 'center'
     },
     image: {
-        maxWidth: '100%',
-        height: '100%',
+        maxWidth: '95%',
+        height: '95%',
         resizeMode: 'cover',
         borderRadius: 15,
+        alignSelf: 'center'
     },
     iconContainer: {
         backgroundColor: '#fff',
@@ -65,18 +65,22 @@ const styles = StyleSheet.create({
     iconStyle: {
         position: 'absolute',
         left: 48,
-        top: 44
+        top: 44,
     },
     whiteCircle: {
-        width: deviceWidth < 360 ? 15 : 35,
-        height: deviceHeight < 360 ? 15 : 35,
+        width: deviceWidth < 375 ? 15 : 35,
+        height: deviceHeight < 375 ? 15 : 35,
         borderRadius: 35 / 2,
         backgroundColor: "white",
-        padding: 6
     },
     containerFavorite: {
         position: 'absolute',
-        right: 35,
-        bottom: 285
+        right: deviceWidth < 375 ? 15 : 35,
+        bottom: deviceHeight < 375 ? 145 : 310,
+
+    },
+    heartStyle: {
+        textAlign: 'center',
+        paddingVertical: 5
     }
 });

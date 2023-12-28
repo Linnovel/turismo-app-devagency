@@ -1,10 +1,8 @@
-import { StyleSheet, Text, View, Dimensions, Button, TouchableOpacity, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Pressable } from 'react-native'
 import COLORS from '../styles/colors'
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import AuthButton from '../styles/custom buttons/AuthButton';
 import { useNavigation } from '@react-navigation/native';
-import BlogPost from '../screens/BlogPost';
 
 export default function ComodidadesIcons() {
     const navigation = useNavigation()
@@ -18,7 +16,6 @@ export default function ComodidadesIcons() {
     }
     return (
         <>
-
             <View style={styles.iconContainer}>
                 <View style={styles.squareContainer}>
                     <Pressable onPress={handleEstablishmentScreen}>
@@ -35,11 +32,16 @@ export default function ComodidadesIcons() {
                     <Ionicons style={styles.iconStyle} name="bed-outline" size={34} color="gray" />
                 </View>
             </View>
+            <View style={styles.priceContainer}>
+                <Text>
+                    price
+                </Text>
+            </View>
             <View style={styles.buttonContainer}>
-                <Text>Precio $199</Text>
+                <Text style={styles.priceTextStyle}>$199</Text>
                 <TouchableOpacity style={styles.button} onPress={handleCalendarScreen} >
                     <Text style={styles.buttonText}>Reservar</Text>
-                    <Ionicons style={styles.styleIcon} name="md-arrow-forward-outline" size={24} color="black" />
+                    <Ionicons style={styles.styleIcon} name="md-arrow-forward-outline" size={24} color="white" />
                 </TouchableOpacity>
             </View>
         </>
@@ -72,11 +74,25 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        paddingRight: 18,
-        paddingTop: 16
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingHorizontal: deviceWidth < 375 ? 8 : 16,
+        paddingTop: deviceWidth < 375 ? 7 : 10,
+    },
+    priceContainer: {
+        position: 'absolute',
+        bottom: 38,
+        paddingHorizontal: 29
+    },
+    priceTextStyle: {
+        fontSize: 28,
+        color: '#2DD7A4',
+        fontWeight: 'bold'
     },
     button: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: 5,
         width: 235,
         height: 50,
         backgroundColor: COLORS.primary,
@@ -94,10 +110,11 @@ const styles = StyleSheet.create({
         }),
     },
     buttonText: {
-        color: '#fff', // White text
+        color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
-        alignSelf: 'center'
+        flexDirection: 'row',
+        alignSelf: 'center',
     },
     styleIcon: {
         alignSelf: 'center'

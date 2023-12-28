@@ -75,9 +75,6 @@ export default function CardProduct({ title, seeAll }) {
         );
     };
 
-
-
-
     return (
         <>
             <View style={styles.containerMainTitle}>
@@ -110,9 +107,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     contanerImage: {
-        width: deviceWidth < 365 ? 150 : 225,
-        height: deviceHeight < 365 ? 180 : 230,
-        paddingLeft: 30,
+        width: deviceWidth < 375 ? 150 : 225,
+        height: deviceHeight < 375 ? 180 : 230,
+        paddingLeft: 25,
         gap: 2,
     },
     subTitleStyle: {
@@ -122,7 +119,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         maxWidth: '100%',
         maxHeight: '100%',
-        borderRadius: deviceWidth < 365 ? 7 : 18,
+        borderRadius: deviceWidth < 375 ? 7 : 18,
         overflow: 'hidden',
         resizeMode: 'cover'
     },
@@ -166,8 +163,8 @@ const styles = StyleSheet.create({
         left: 32,
     },
     whiteCircle: {
-        width: deviceWidth < 360 ? 15 : 30,
-        height: deviceHeight < 360 ? 15 : 30,
+        width: deviceWidth < 375 ? 15 : 30,
+        height: deviceHeight < 375 ? 15 : 30,
         borderRadius: 30 / 2,
         backgroundColor: "white",
         padding: 6
