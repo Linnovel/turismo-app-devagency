@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
-
+import BlogUserComments from './BlogUserComments';
 //pasar pros con titulos y refactorizar las imagenes 
 
 export default function BlogPostPhoto() {
@@ -22,6 +22,7 @@ export default function BlogPostPhoto() {
             <View style={styles.descriptionContainer}>
                 <Text style={styles.descriptionStyle}>Enim reprehenderit sun do do. Ex fugiat nisi sit anim culpa nisi. Non labore fugiat culpa magna. Commodo esse Lorem ex duis do et</Text>
             </View>
+            <BlogUserComments />
         </>
     )
 }

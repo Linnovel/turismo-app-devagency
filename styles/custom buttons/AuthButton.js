@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Pressable } from 'react-native'
 import COLORS from '../../styles/colors'
 
-function AuthButton({ children, onPress }) {
+function AuthButton({ children, onPress, onPagar }) {
 
     return (
         <Pressable onPress={onPress} >

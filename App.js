@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import COLORS from './styles/colors';
 
 
 //imports bottoTabs
@@ -12,6 +14,7 @@ import UserFavoriteScreen from './screens/UserFavoriteScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 
 //import Stack.screen
+import HomeLoginScreen from './screens/HomeLoginScreen';
 import Register from './authentication/Register';
 import Login from './authentication/Login';
 import ForgotPassword from './authentication/ForgotPassword';
@@ -20,8 +23,7 @@ import CardProduct from './components/CardProduct';
 import BlogPost from './screens/BlogPost';
 import CalendarScreen from './screens/CalendarScreen';
 import ReserveConfirmationScreen from './screens/ReserveConfirmationScreen';
-import COLORS from './styles/colors';
-
+import PaymentScreen from './screens/PaymentScreen';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator()
@@ -31,9 +33,10 @@ const BottomTabs = createBottomTabNavigator()
 function BottomTabNavigatior() {
   return (
     <BottomTabs.Navigator screenOptions={{
+      tabBarStyle: styles.tabBar,
       tabBarActiveTintColor: COLORS.primary,
       headerStyle: { backgroundColor: COLORS.primary },
-      headerTintColor: 'white'
+      headerTintColor: 'white',
     }}>
       <BottomTabs.Screen name='HomeScreen' component={HomeScreen} options={{
         title: 'Home',
@@ -61,14 +64,20 @@ function BottomTabNavigatior() {
   )
 }
 
-
+const styles = StyleSheet.create({
+  tabBar: {
+    borderRadius: 20,
+    elevation: 4,
+  }
+})
 
 export default function App() {
 
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Register'>
+        <Stack.Navigator initialRouteName='HomeLoginScreen'>
+          <Stack.Screen name="HomeLoginScreen" component={HomeLoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
@@ -81,10 +90,10 @@ export default function App() {
           <Stack.Screen name='EstablishmentScreen' component={EstablishmentScreen} options={{ headerShown: false }} />
           <Stack.Screen name='BlogPost' component={BlogPost} options={{ headerShown: false }} />
           <Stack.Screen name='CalendarScreen' component={CalendarScreen} options={{ headerShown: false }} />
+          <Stack.Screen name='PaymentScreen' component={PaymentScreen} options={{ headerShown: false }} />
           <Stack.Screen name='ReserveConfirmationScreen' component={ReserveConfirmationScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
       <StatusBar style="auto" />
     </>
 

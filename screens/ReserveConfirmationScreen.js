@@ -13,27 +13,32 @@ export default function ReserveConfirmationScreen() {
                         <Text style={styles.buttonText}>Click me</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.secondaryActionContainer}>
+                    <Text style={styles.secondaryActionStyle}>
+                        Secondary Action
+                    </Text>
+                </View>
             </View>
         </View>
     )
 }
-
+//arreglar card 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, // Fill the entire screen
-        justifyContent: 'center', // Center content vertically
-        alignItems: 'center', // Center content horizontally
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: COLORS.primary
     },
     card: {
-        backgroundColor: '#fff', // White background
-        padding: 20, // Add padding
-        borderRadius: 10, // Rounded corners
-        shadowColor: '#000', // Shadow color
-        shadowOffset: { width: 0, height: 2 }, // Shadow offset
-        shadowOpacity: 0.15, // Shadow opacity
-        shadowRadius: 4, // Shadow blur radius
-        elevation: 5, // Android elevation
+        backgroundColor: '#fff',
+        padding: 20,
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.15,
+        shadowRadius: 4,
+        elevation: 5,
     },
     cardText: {
         fontSize: 26,
@@ -48,13 +53,30 @@ const styles = StyleSheet.create({
         paddingRight: 18,
         paddingTop: 16,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#fff', // White text
+        fontSize: 16,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        padding: 12
+    },
+    secondaryActionContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 8
+    },
+    secondaryActionStyle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: COLORS.primary
     },
     button: {
-        width: 235,
+        width: 285,
         height: 50,
         backgroundColor: COLORS.primary,
-        borderRadius: 15,
+        borderRadius: 25,
         ...Platform.select({
             ios: {
                 shadowColor: '#000',
@@ -67,13 +89,4 @@ const styles = StyleSheet.create({
             },
         }),
     },
-    buttonText: {
-        color: '#fff', // White text
-        fontSize: 16,
-        fontWeight: 'bold',
-        alignSelf: 'center'
-    },
-    styleIcon: {
-        alignSelf: 'center'
-    }
 });

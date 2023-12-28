@@ -30,8 +30,8 @@ const deviceHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     inputContainer: {
-        width: deviceWidth < 360 ? 150 : 325,
-        height: deviceHeight < 360 ? 35 : 50,
+        width: deviceWidth < 375 ? 150 : 325,
+        height: deviceHeight < 375 ? 35 : 50,
         paddingStart: 12,
         paddingTop: 8
     },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: COLORS.inputColorPrimary,
-        borderRadius: deviceWidth < 360 ? 75 : 187,
+        borderRadius: deviceWidth < 375 ? 75 : 187,
         paddingLeft: 45,
         overflow: 'hidden'
     },
