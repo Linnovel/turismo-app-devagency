@@ -2,12 +2,13 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
 import COLORS from '../styles/colors';
 import AuthButton from '../styles/custom buttons/AuthButton';
+import { ScaledSheet } from 'react-native-size-matters';
 
 
 function ForgotPassword() {
 
     return (
-        <View style={styles.containerStyle}>
+        <>
             <View style={styles.titleContainer}>
                 <Text style={styles.titleStyle}>Olvide mi password</Text>
             </View>
@@ -20,31 +21,28 @@ function ForgotPassword() {
                     <Text style={styles.passwordStyle}>Olvidaste tu password?</Text>
                 </View>
             </Pressable>
-        </View>
+        </>
     )
 }
 
-const styles = StyleSheet.create({
-    containerStyle: {
-        flex: 1,
-    },
+const styles = ScaledSheet.create({
     inputStyle: {
-        height: 50,
-        margin: 12,
-        padding: 10,
-        borderRadius: 8,
-        borderWidth: 2,
+        height: '50@vs',
+        margin: '12@vs',
+        padding: '10@s',
+        borderRadius: '8@s',
+        borderWidth: '2@s',
         borderColor: '#F0F0F0',
         backgroundColor: '#F6F6F6'
     },
     titleContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 12,
+        paddingTop: '16@s',
         flexDirection: 'row'
     },
     titleStyle: {
-        fontSize: 36,
+        fontSize: '30@s',
         fontWeight: 'bold',
     },
 

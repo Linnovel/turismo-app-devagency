@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -34,6 +34,7 @@ function BottomTabNavigatior() {
   return (
     <BottomTabs.Navigator screenOptions={{
       tabBarStyle: styles.tabBar,
+      backgroundColor: 'transparent',
       tabBarActiveTintColor: COLORS.primary,
       headerStyle: { backgroundColor: COLORS.primary },
       headerTintColor: 'white',
@@ -64,10 +65,12 @@ function BottomTabNavigatior() {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   tabBar: {
-    borderRadius: 20,
-    elevation: 4,
+    width: '375@ms',
+    height: '58@vs',
+    borderRadius: '32@s',
+    elevation: '4@s',
   }
 })
 
@@ -78,9 +81,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName='HomeLoginScreen'>
           <Stack.Screen name="HomeLoginScreen" component={HomeLoginScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+          <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
           <Stack.Screen
             name="BottomTabNavigatior"
             component={BottomTabNavigatior}

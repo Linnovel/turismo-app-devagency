@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import BlogUserComments from './BlogUserComments';
-//pasar pros con titulos y refactorizar las imagenes 
+import { ScaledSheet } from 'react-native-size-matters';
 
 export default function BlogPostPhoto() {
 
@@ -27,41 +27,38 @@ export default function BlogPostPhoto() {
     )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     imageContainer: {
-        width: '100%',
-        height: '52%',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 20,
-        paddingBottom: 12,
-        paddingHorizontal: 12
+        paddingTop: '20@s',
     },
     image: {
-        maxWidth: '100%',
-        height: '100%',
+        width: '327@ms',
+        height: '270@vs',
         resizeMode: 'cover',
-        borderRadius: 15,
+        borderRadius: '20@vs',
     },
     titleContainer: {
-        paddingHorizontal: 12
+        paddingHorizontal: '20@s',
+        paddingBottom: '8@vs'
     },
     titleStyle: {
-        fontSize: 26,
+        fontSize: '24@s',
         fontWeight: 'bold'
     },
     clientNameContainer: {
-        paddingHorizontal: 12
+        paddingHorizontal: '20@s',
     },
     clientNameStyle: {
-        fontSize: 18,
+        fontSize: '16@s',
         fontWeight: 'bold'
     },
     descriptionContainer: {
-        paddingHorizontal: 12,
-        paddingTop: 16
+        paddingHorizontal: '20@s',
+        paddingTop: '16@s'
     },
     descriptionStyle: {
-        fontSize: 17
+        fontSize: '16@ms'
     },
 })

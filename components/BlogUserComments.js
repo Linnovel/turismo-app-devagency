@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Dimensions, FlatList } from 'react-native'
+import { Text, View, FlatList } from 'react-native'
 import React from 'react'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const commentData = [
     {
@@ -22,6 +23,11 @@ const commentData = [
         comment: "Love the food really good",
         id: 4
     },
+    {
+        title: "Restaurant",
+        comment: "Love the food really good",
+        id: 5
+    },
 
 ]
 
@@ -32,8 +38,8 @@ export default function BlogUserComments() {
             <View style={styles.container}>
                 <View style={styles.rectangularContainer} />
                 <View style={styles.textContainer}>
-                    <Text>{item.title}</Text>
-                    <Text allowFontScaling={true}>{item.comment}</Text>
+                    <Text  >{item.title}</Text>
+                    <Text >{item.comment}</Text>
                 </View>
             </View>
         </>)
@@ -44,7 +50,6 @@ export default function BlogUserComments() {
             <FlatList data={commentData}
                 key={({ item }) => item.id}
                 renderItem={renderItem}
-                //refactorizar esta guarandinga y hacerlo un componenete reusable
                 ItemSeparatorComponent={() => <View style={{ width: '100%', height: 0.5, backgroundColor: 'black' }} />}
             />
 
@@ -52,22 +57,20 @@ export default function BlogUserComments() {
     )
 }
 
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
-        padding: deviceWidth < 375 ? 4 : 8,
+        padding: '8@s',
         flexDirection: 'row',
-        gap: 8,
+        gap: '8@vs',
     },
     textContainer: {
         flexWrap: 'nowrap'
     },
     rectangularContainer: {
-        backgroundColor: '#F6F6F6',
-        width: 50,
-        height: 50,
-        borderRadius: 15,
+        backgroundColor: '#f6f6f6',
+        width: '50@s',
+        height: '50@s',
+        borderRadius: '8@s',
     }
 })

@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { Text, View, SafeAreaView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import COLORS from '../styles/colors';
 
 import InputSearchBar from './InputSearchBar';
+import { ScaledSheet } from 'react-native-size-matters';
 
 export default function HeadersContainers({ mainTitle, subTitle }) {
     return (
@@ -13,7 +14,7 @@ export default function HeadersContainers({ mainTitle, subTitle }) {
                     <Text style={styles.fontStyleMainTitle}>{mainTitle}</Text>
                     <View style={styles.secondSubTitle}>
                         <Ionicons name="location-sharp" size={18} color={COLORS.primary} />
-                        <Text>Mgta, Ven</Text>
+                        <Text style={styles.locationTextStyle}>Mgta, Ven</Text>
                         <AntDesign name="down" size={18} color={COLORS.primary} />
                     </View>
                 </View>
@@ -26,25 +27,29 @@ export default function HeadersContainers({ mainTitle, subTitle }) {
     )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     mainHeader: {
-        paddingTop: 18,
-        paddingHorizontal: 18
+        paddingTop: '19@ms',
+        paddingHorizontal: '18@vs'
     },
     fontStyleMainTitle: {
-        fontSize: 19,
+        fontSize: '14@s',
     },
     secondSubTitle: {
         flexDirection: 'row',
         position: 'absolute',
-        right: 13,
-        top: 23
+        right: '13@vs',
+        top: '23@vs',
+        gap: '8@vs'
+    },
+    locationTextStyle: {
+        fontSize: '12@s'
     },
     containerSubTitle: {
-        paddingLeft: 18,
+        paddingLeft: '18@vs',
     },
     subTitleStyle: {
-        fontSize: 36,
+        fontSize: '32@s',
         fontWeight: 'normal'
     }
 

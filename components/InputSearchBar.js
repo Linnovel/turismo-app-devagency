@@ -1,7 +1,8 @@
 //importanciones nativas 
-import { StyleSheet, View, TextInput, Dimensions } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../styles/colors'
+import { ScaledSheet } from 'react-native-size-matters';
 
 //importanciones de componenetes
 import CardProduct from './CardProduct';
@@ -14,9 +15,9 @@ export default function InputSearchBar() {
     return (
         <>
             <View style={styles.inputContainer}>
-                <TextInput style={styles.inputStyle} placeholder='Buscar...' />
+                <TextInput style={styles.inputStyle} placeholder='Buscar...' placeholderTextColor='#686363' />
                 <View style={styles.iconContainer}>
-                    <Ionicons name="search-outline" size={24} color="black" />
+                    <Ionicons name="search-outline" size={24} color="#BCBCBC" />
                 </View>
             </View>
             <FilterTypesLocation />
@@ -25,27 +26,24 @@ export default function InputSearchBar() {
     )
 }
 
-const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height;
 
-const styles = StyleSheet.create({
+
+const styles = ScaledSheet.create({
     inputContainer: {
-        width: deviceWidth < 375 ? 150 : 325,
-        height: deviceHeight < 375 ? 35 : 50,
-        paddingStart: 12,
-        paddingTop: 8
+        paddingHorizontal: '12@s',
+        paddingTop: '8@s'
     },
     inputStyle: {
-        width: '100%',
-        height: '100%',
+        width: '294@ms',
+        height: '52@vs',
         backgroundColor: COLORS.inputColorPrimary,
-        borderRadius: deviceWidth < 375 ? 75 : 187,
-        paddingLeft: 45,
+        borderRadius: '24@s',
+        paddingLeft: '45@vs',
         overflow: 'hidden'
     },
     iconContainer: {
         position: 'absolute',
-        top: 17,
-        left: 27
+        top: '23@vs',
+        left: '27@vs'
     }
 })

@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Text, View } from 'react-native'
 import COLORS from '../styles/colors'
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { ScaledSheet } from 'react-native-size-matters';
 
 import ComodidadesIcons from './ComodidadesIcons';
 
@@ -31,46 +32,49 @@ export default function EstablishmentDescription({ title, review }) {
     )
 }
 
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+
+const styles = ScaledSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 12,
+        paddingHorizontal: '18@s',
+        paddingTop: '18@s',
+        alignItems: 'center'
     },
     titleStyle: {
-        fontSize: 18,
+        fontSize: '22@s',
         fontWeight: 'bold',
+        alignSelf: 'center'
     },
     subtitleStyle: {
-        fontSize: 18,
+        fontSize: '18@s',
         color: COLORS.primary,
         fontWeight: 'bold',
     },
     reviewContainer: {
         flexDirection: 'row',
-        paddingHorizontal: 12,
-        gap: 12
+        paddingHorizontal: '22@vs',
+        gap: '8@vs'
     },
     descriptionContainer: {
-        paddingHorizontal: 8,
-        padding: 2
+        paddingHorizontal: '18@s',
+        paddingTop: '8@s'
     },
     iconContainer: {
         flexDirection: 'row',
-        padding: 12,
-        gap: 9,
+        paddingHorizontal: '18@s',
+        paddingTop: '8@s',
+        gap: '9@vs',
     },
     seeMoreStyle: {
         color: COLORS.primary
     },
     comodidadesContainer: {
-        paddingHorizontal: 12
+        paddingHorizontal: '18@s'
     },
     comidadesStyle: {
-        fontSize: 18,
+        fontSize: '18@s',
         fontWeight: 'bold'
     }
 })
