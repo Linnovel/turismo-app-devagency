@@ -24,6 +24,8 @@ import BlogPost from './screens/BlogPost';
 import CalendarScreen from './screens/CalendarScreen';
 import ReserveConfirmationScreen from './screens/ReserveConfirmationScreen';
 import PaymentScreen from './screens/PaymentScreen';
+import RatedOurAppScreen from './screens/RatedOurAppScreen';
+import { SafeAreaView } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator()
@@ -59,6 +61,7 @@ function BottomTabNavigatior() {
       <BottomTabs.Screen name='UserProfileScreen' component={UserProfileScreen} options={{
         title: 'User',
         tabBarLabel: 'Profile',
+        headerShown: false,
         tabBarIcon: ({ color, size }) => (<Ionicons name="body-sharp" size={size} color={color} />)
       }} />
     </BottomTabs.Navigator>
@@ -95,9 +98,10 @@ export default function App() {
           <Stack.Screen name='CalendarScreen' component={CalendarScreen} options={{ headerShown: false }} />
           <Stack.Screen name='PaymentScreen' component={PaymentScreen} options={{ headerShown: false }} />
           <Stack.Screen name='ReserveConfirmationScreen' component={ReserveConfirmationScreen} options={{ headerShown: false }} />
+          <Stack.Screen name='RatedOurAppScreen' component={RatedOurAppScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </>
 
   );

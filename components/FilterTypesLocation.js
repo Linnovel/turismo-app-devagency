@@ -34,13 +34,13 @@ export default function FilterTypesLocation() {
                 data={categoriesTypes}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
-                    <TouchableOpacity >
-                        <View style={styles.container}>
+                    <View style={styles.container}>
+                        <TouchableOpacity >
                             <View style={styles.ovalContainer}>
                                 <Text style={styles.textStyles}>{item.title}</Text>
                             </View>
-                        </View>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                 )}
                 horizontal
             />
@@ -51,16 +51,16 @@ export default function FilterTypesLocation() {
 const styles = ScaledSheet.create({
 
     ovalContainer: {
-        borderRadius: 45,
+        borderRadius: '33@s',
         backgroundColor: COLORS.inputColorPrimary,
-        paddingTop: 16,
-        paddingBottom: 14,
-        paddingHorizontal: 16
+        paddingTop: '16@s',
+        paddingBottom: '14@s',
+        paddingHorizontal: '16@vs'
     },
     textStyles: {
         color: COLORS.primary
     },
     container: {
-        padding: 12
+        padding: '12@s'
     }
 });

@@ -1,28 +1,34 @@
-import { Text, View, TouchableOpacity } from 'react-native'
-import { ScaledSheet } from "react-native-size-matters";
+import { Text, View } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
+import React from 'react'
 import COLORS from '../styles/colors'
+import { Entypo } from '@expo/vector-icons';
 
-export default function ReserveConfirmationScreen() {
+export default function RatedOurAppScreen() {
     return (
-        <View style={styles.container}>
-            <View style={styles.card}>
-                <Text style={styles.cardText}>Reservar Confirmada</Text>
-                <Text style={styles.agradecimientoText}>Gracias por reservar con nosotros, revisa tu bandeja de recibidos para ver los detalles de tu reserva</Text>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>Click me</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.secondaryActionContainer}>
-                    <Text style={styles.secondaryActionStyle}>
-                        Secondary Action
-                    </Text>
+        <>
+            <View style={styles.container}>
+                <View style={styles.card}>
+                    <View style={styles.starContainer}>
+                        <Entypo name="star" size={32} color="#FFB84E" />
+                        <Entypo name="star" size={32} color="#FFB84E" />
+                        <Entypo name="star" size={32} color="#FFB84E" />
+                        <Entypo name="star" size={32} color="#FFB84E" />
+                        <Entypo name="star" size={32} color="#FFB84E" />
+                    </View>
+                    <Text style={styles.cardText}>Califica nuestra app</Text>
+                    <Text style={styles.agradecimientoText}>Consequat velit qui adipiscing sunt do reprehenderit ad laborum tempor ullamco exercitation. Ullamco tempor adipiscing et volupatate duis sit esse aliqua esse ex dolore esse. Consequact velit qui adipiciving sunt</Text>
+                    <View style={styles.buttonContainer}>
+                        <View style={styles.button}>
+                            <Text style={styles.buttonText}>Enviar</Text>
+                        </View>
+                    </View>
                 </View>
             </View>
-        </View>
+        </>
     )
 }
-//arreglar card 
+
 const styles = ScaledSheet.create({
     container: {
         flex: 1,
@@ -32,7 +38,7 @@ const styles = ScaledSheet.create({
     },
     card: {
         width: '343@ms',
-        height: '363@vs',
+        height: '427@vs',
         backgroundColor: '#fff',
         borderRadius: '10@s',
         shadowColor: '#000',
@@ -42,10 +48,18 @@ const styles = ScaledSheet.create({
         elevation: '5@s',
         paddingTop: '22@s'
     },
+    starContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '8@vs',
+        paddingBottom: '8@s'
+    },
     cardText: {
         fontSize: '30@s',
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingTop: '8@s'
     },
     agradecimientoText: {
         fontSize: '16@s',
@@ -56,6 +70,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        paddingBottom: '28@vs'
     },
     buttonText: {
         color: '#fff', // White text
@@ -91,4 +106,4 @@ const styles = ScaledSheet.create({
             },
         }),
     },
-});
+})

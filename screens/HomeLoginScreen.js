@@ -1,13 +1,15 @@
-import { StyleSheet, Text, ImageBackground, TouchableOpacity, View } from 'react-native'
+import { Text, ImageBackground, TouchableOpacity, View, FlatList } from 'react-native'
 import COLORS from '../styles/colors'
 import { useNavigation } from '@react-navigation/native';
-import { scale, verticalScale, moderateScale, ScaledSheet } from 'react-native-size-matters';
+import { ScaledSheet } from 'react-native-size-matters';
 
 export default function HomeLoginScreen() {
     const navigation = useNavigation()
     function loginButtonApp() {
         navigation.navigate('Register')
     }
+
+
     return (
         <>
             <ImageBackground style={styles.imageBackgroundContainer} source={require('../assets/images/imageplaya.jpg')}>

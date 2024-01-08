@@ -9,7 +9,7 @@ import { ScaledSheet } from 'react-native-size-matters';
 export default function HeadersContainers({ mainTitle, subTitle }) {
     return (
         <>
-            <SafeAreaView >
+            <SafeAreaView style={styles.safeArea}>
                 <View style={styles.mainHeader}>
                     <Text style={styles.fontStyleMainTitle}>{mainTitle}</Text>
                     <View style={styles.secondSubTitle}>
