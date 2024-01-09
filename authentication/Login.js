@@ -1,9 +1,9 @@
 //Login screen
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
-import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { Text, View, TextInput, Pressable } from 'react-native'
 import AuthButton from '../styles/custom buttons/AuthButton'
 import COLORS from '../styles/colors';
+import { ScaledSheet } from 'react-native-size-matters';
 
 
 function Login({ navigation }) {
@@ -17,11 +17,10 @@ function Login({ navigation }) {
     }
 
     return (
-        <View style={styles.containerStyle}>
+        <>
             <View style={styles.titleContainer}>
                 <Text style={styles.titleStyle}>Login</Text>
             </View>
-
             <TextInput style={styles.inputStyle} placeholder='Email' />
             <View>
                 <TextInput style={styles.inputStyle} placeholder='Password' secureTextEntry={!showPassword} />
@@ -38,46 +37,44 @@ function Login({ navigation }) {
                     <Text style={styles.passwordStyle}>Olvidaste tu password?</Text>
                 </View>
             </Pressable>
-        </View>
+        </>
     )
 }
 
-const styles = StyleSheet.create({
-    containerStyle: {
-        flex: 1,
-    },
+const styles = ScaledSheet.create({
+
     inputStyle: {
-        height: 50,
-        margin: 12,
-        padding: 10,
-        borderRadius: 8,
-        borderWidth: 2,
-        borderColor: '#F0F0F0',
-        backgroundColor: '#F6F6F6'
+        height: '50@vs',
+        margin: '8@vs',
+        padding: '10@s',
+        borderRadius: '8@s',
+        borderWidth: '3@s',
+        borderColor: '#E8E8E8',
+        backgroundColor: '#F6F6F6',
     },
     titleContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 12,
+        paddingTop: '12@vs',
         flexDirection: 'row'
     },
     titleStyle: {
-        fontSize: 36,
+        fontSize: '30@s',
         fontWeight: 'bold',
     },
     textColor: {
         color: 'red',
         fontWeight: 'bold',
-        fontSize: 18
+        fontSize: '16@s'
     },
     showPasswordText: {
         position: 'absolute',
-        right: 18,
-        bottom: 26,
+        right: '18@vs',
+        bottom: '22@vs',
     },
     checkboxStyle: {
         justifyContent: 'flex-start',
-        paddingLeft: 14
+        paddingLeft: '14@vs'
     },
     passwordContainer: {
         justifyContent: 'center',
@@ -85,7 +82,8 @@ const styles = StyleSheet.create({
     },
     passwordStyle: {
         color: COLORS.primary,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: '16@s'
     },
 
 

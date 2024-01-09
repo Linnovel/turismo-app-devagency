@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Pressable } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../styles/colors';
 import EstablishmentDescription from './EstablishmentDescription';
+import { ScaledSheet, scale } from 'react-native-size-matters';
 
 export default function EstablishmentPhoto() {
     const navigation = useNavigation()
@@ -25,7 +26,7 @@ export default function EstablishmentPhoto() {
             </Pressable>
             <View style={styles.containerFavorite}>
                 <View style={styles.whiteCircle}>
-                    <Ionicons name="heart" size={24} color={COLORS.primary} style={styles.heartStyle} />
+                    <Ionicons name="heart" size={23} color={COLORS.primary} style={styles.heartStyle} />
                 </View>
             </View>
             <EstablishmentDescription title="Hotel de pruebas" review="4.5(355 Reviews)" />
@@ -33,54 +34,51 @@ export default function EstablishmentPhoto() {
     )
 }
 
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+
+const styles = ScaledSheet.create({
     imageContainer: {
-        width: deviceWidth < 375 ? 245 : 365,
-        height: deviceHeight < 375 ? 240 : 365,
-        paddingTop: deviceWidth < 375 ? 8 : 20,
-        paddingLeft: 10,
-        paddingHorizontal: 2,
+        paddingTop: '20@s',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: '18@vs'
     },
     image: {
-        maxWidth: '95%',
-        height: '95%',
+        width: '335@ms',
+        height: '340@vs',
         resizeMode: 'cover',
-        borderRadius: 15,
+        borderRadius: '15@s',
         alignSelf: 'center'
     },
     iconContainer: {
         backgroundColor: '#fff',
-        width: 40,
-        height: 40,
-        borderRadius: 15,
+        width: '40@s',
+        height: '40@vs',
+        borderRadius: '15@s',
         position: 'absolute',
-        left: 40,
-        top: 36
+        left: '40@vs',
+        top: '36@vs',
+        justifyContent: 'center'
     },
     iconStyle: {
         position: 'absolute',
-        left: 48,
-        top: 44,
+        left: '48@vs',
+        top: '44@vs',
     },
     whiteCircle: {
-        width: deviceWidth < 375 ? 15 : 35,
-        height: deviceHeight < 375 ? 15 : 35,
-        borderRadius: 35 / 2,
+        width: '44@s',
+        height: '44@vs',
+        borderRadius: scale(44) / 2,
         backgroundColor: "white",
     },
     containerFavorite: {
         position: 'absolute',
-        right: deviceWidth < 375 ? 15 : 35,
-        bottom: deviceHeight < 375 ? 145 : 310,
+        right: '35@s',
+        bottom: '310@vs',
 
     },
     heartStyle: {
         textAlign: 'center',
-        paddingVertical: 5
+        paddingVertical: '12@vs'
     }
 });

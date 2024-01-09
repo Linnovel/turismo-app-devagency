@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, FlatList, Image, Pressable, Dimensions } from 'react-native'
+import { Text, View, FlatList, Image, Pressable } from 'react-native'
 import COLORS from '../styles/colors'
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { hotel } from '../assets/images/hotelimage.jpeg'
 import { useNavigation } from '@react-navigation/native';
+import { ScaledSheet, scale } from 'react-native-size-matters';
 
 const categoriesHotels = [
     {
@@ -91,87 +92,70 @@ export default function CardProduct({ title, seeAll }) {
     )
 }
 
-const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height;
 
-const styles = StyleSheet.create({
+
+const styles = ScaledSheet.create({
     containerMainTitle: {
-        paddingHorizontal: 18,
-        paddingBottom: 14,
+        paddingHorizontal: '18@s',
+        paddingBottom: '10@s',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
     mainTitle: {
-        fontSize: 26,
+        fontSize: '18@s',
         fontWeight: 'bold'
     },
     contanerImage: {
-        width: deviceWidth < 375 ? 150 : 225,
-        height: deviceHeight < 375 ? 180 : 230,
-        paddingLeft: 25,
-        gap: 2,
+        paddingLeft: '25@vs',
     },
     subTitleStyle: {
         color: COLORS.primary,
         fontWeight: 'bold'
     },
     imageContainer: {
-        maxWidth: '100%',
-        maxHeight: '100%',
-        borderRadius: deviceWidth < 375 ? 7 : 18,
+        width: '188@ms',
+        height: '230@vs',
+        borderRadius: '18@ms',
         overflow: 'hidden',
         resizeMode: 'cover'
     },
     containerTitleCard: {
         position: 'absolute',
-        top: 140,
-        left: 32
+        top: '140@vs',
+        left: '32@vs'
     },
     ovalContainer: {
-        borderRadius: 45,
+        borderRadius: '45@s',
         backgroundColor: '#4D5652',
-        padding: 8,
-        margin: 4,
+        padding: '8@vs',
     },
     ovalTextStyle: {
         color: 'white'
     },
-    ovalReview: {
-        borderRadius: 45,
-        margin: 4,
-        backgroundColor: '#4D5652',
-        width: 64,
-        padding: 4
-    },
-    containerOvalReview: {
-        position: 'absolute',
-        top: 185,
-        left: 16
-    },
     circleContainer: {
         flexDirection: 'row',
-        borderRadius: 45,
+        borderRadius: '45@s',
         backgroundColor: '#4D5652',
-        padding: 8,
-        margin: 6,
-        gap: 4
+        padding: '8@s',
+        margin: '6@vs',
+        gap: '2@vs'
     },
     secondOval: {
         position: 'absolute',
-        top: 180,
-        left: 32,
+        top: '175@vs',
+        left: '28@vs',
     },
     whiteCircle: {
-        width: deviceWidth < 375 ? 15 : 30,
-        height: deviceHeight < 375 ? 15 : 30,
-        borderRadius: 30 / 2,
+        width: '28@ms',
+        height: '28@vs',
+        borderRadius: scale(30) / 2,
         backgroundColor: "white",
-        padding: 6
+        padding: '6@s'
     },
     containerFavorite: {
         position: 'absolute',
-        right: 20,
-        bottom: 12
+        right: '20@vs',
+        bottom: '16@vs'
     }
 })

@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, FlatList, Image, Dimensions, Platform } from 'react-native'
+import { Text, View, FlatList, Image, Dimensions } from 'react-native'
 import COLORS from '../styles/colors'
+import { ScaledSheet } from 'react-native-size-matters';
 
 const categoriesHotels = [
     {
@@ -38,12 +39,8 @@ export default function RecommendedSection({ mainTitle }) {
 
     const renderItem = ({ item }) => {
         return <>
-            <View >
-                <View style={styles.cardContainer}>
-                    <View style={styles.styleCard} >
-                        <Text>{item.title}</Text>
-                    </View>
-                </View>
+            <View style={styles.cardContainer}>
+                <Text>{item.title}</Text>
                 <View style={styles.imageContainer}>
                     <Image resizeMode='cover' source={item.image} style={styles.styleImageContainer} />
                 </View>
@@ -68,65 +65,54 @@ export default function RecommendedSection({ mainTitle }) {
     )
 }
 
-//dimensions api
-const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height;
-
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
-        paddingHorizontal: deviceWidth < 375 ? 12 : 18,
-        paddingTop: deviceWidth < 375 ? 3 : 6,
-        paddingBottom: deviceWidth < 375 ? 3 : 6,
+        paddingHorizontal: '18@s',
+        paddingTop: '2@ms',
     },
     textContainer: {
-        fontSize: deviceWidth < 375 ? 12 : 24,
+        fontSize: '18@s',
         fontWeight: 'bold'
     },
     imageContainer: {
-        paddingLeft: deviceWidth < 375 ? 12 : 18,
-        width: deviceWidth < 375 ? 60 : 200,
-        height: deviceHeight < 375 ? 50 : 100,
-        paddingHorizontal: 2,
+        paddingLeft: '18@s',
+        paddingHorizontal: '2@s',
         position: 'absolute',
-        top: 10,
-        right: 10
+        top: '2@vs',
+        right: '2@vs'
     },
     styleImageContainer: {
-        borderRadius: deviceWidth < 375 ? 7 : 15,
-        maxWidth: '100%',
-        height: '100%',
+        borderRadius: '12@s',
+        width: '166@ms',
+        height: '102@vs',
         resizeMode: 'cover',
     },
+    //contenedor de estilos flatlist
     cardContainer: {
-        width: deviceWidth < 375 ? 60 : 190,
-        height: deviceHeight < 375 ? 50 : 145,
-        backgroundColor: '#EEF2F7',
-        borderRadius: 15,
-        margin: 5,
+        width: '174@ms',
+        height: '144@vs',
+        backgroundColor: '#ECF0F5',
+        borderRadius: '16@s',
+        margin: '8@vs',
         elevation: 2,
-        paddingHorizontal: 8,
-        paddingTop: 115,
-        shadowColor: '#000', // Shadow color
-        shadowOffset: { width: 0, height: 2 }, // Horizontal and vertical offset
-        shadowOpacity: 0.4, // Shadow opacity (0-1)
-        shadowRadius: 2, // Shadow blur radius
-    },
-    styleCard: {
-        maxWidth: '100%',
-        maxHeight: '100%',
-        paddingHorizontal: 8
+        paddingHorizontal: '6@vs',
+        paddingTop: '108@vs',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
     },
     ovalCombo: {
-        width: deviceWidth < 375 ? 20 : 60,
-        height: deviceHeight < 375 ? 20 : 30,
-        borderRadius: deviceWidth < 375 ? 7 : 15,
-        borderWidth: 3,
+        width: '60@ms',
+        height: '30@vs',
+        borderRadius: '15@s',
+        borderWidth: '3@s',
         borderColor: 'white',
         backgroundColor: '#3A5450',
         justifyContent: 'center',
         position: 'absolute',
-        right: 16,
-        bottom: 32
+        right: '16@vs',
+        bottom: '32@vs'
     },
     ovalText: {
         color: 'white',

@@ -1,58 +1,72 @@
-import { StyleSheet, Text, ImageBackground, TouchableOpacity } from 'react-native'
+import { Text, ImageBackground, TouchableOpacity, View, FlatList } from 'react-native'
 import COLORS from '../styles/colors'
 import { useNavigation } from '@react-navigation/native';
-
+import { ScaledSheet } from 'react-native-size-matters';
 
 export default function HomeLoginScreen() {
     const navigation = useNavigation()
     function loginButtonApp() {
         navigation.navigate('Register')
     }
+
+
     return (
         <>
             <ImageBackground style={styles.imageBackgroundContainer} source={require('../assets/images/imageplaya.jpg')}>
-                <Text style={styles.loginTextStyle}>Turismo App</Text>
-                <Text style={styles.subTitleStyle}>
-                    Planea tus proximas vacaiones
-                </Text>
-                <TouchableOpacity style={styles.buttonContainer} onPress={loginButtonApp}>
-                    <Text style={styles.textStyle}>Login</Text>
-                </TouchableOpacity>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.loginTextStyle}>TURISMO APP</Text>
+                </View>
+                <View style={styles.subtitleContainer}>
+                    <Text style={styles.subTitleStyle}>
+                        Planea tus
+                        proximas vacaiones
+                    </Text>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={loginButtonApp}>
+                        <Text style={styles.textStyle}>Login</Text>
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </>
-
     )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     imageBackgroundContainer: {
         flex: 1,
         resizeMode: 'cover',
+    },
+    titleContainer: {
+        flex: 0.5,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    subTitleStyle: {
-        fontSize: 34,
-        color: 'white',
-        textAlign: 'center',
-        fontWeight: 'bold'
+    subtitleContainer: {
+        flex: 0.5,
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        paddingHorizontal: '42@vs'
     },
     loginTextStyle: {
-        fontSize: 38,
+        fontSize: '38@s',
         fontWeight: 'bold',
+        color: '#ffff',
+    },
+    subTitleStyle: {
+        fontSize: '39@s',
         color: 'white',
-        textAlign: 'center',
+        textAlign: 'left',
+        fontWeight: 'bold',
     },
     buttonContainer: {
-        width: 255,
-        height: 50,
-        borderRadius: 15,
+        width: '280@ms',
+        height: '50@vs',
+        borderRadius: '16@s',
         backgroundColor: COLORS.primary,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     textStyle: {
         color: 'white',
-        fontSize: 18,
+        fontSize: '18@ms',
         alignSelf: 'center',
     }
 })

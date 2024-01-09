@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -24,6 +24,8 @@ import BlogPost from './screens/BlogPost';
 import CalendarScreen from './screens/CalendarScreen';
 import ReserveConfirmationScreen from './screens/ReserveConfirmationScreen';
 import PaymentScreen from './screens/PaymentScreen';
+import RatedOurAppScreen from './screens/RatedOurAppScreen';
+import { SafeAreaView } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator()
@@ -34,6 +36,7 @@ function BottomTabNavigatior() {
   return (
     <BottomTabs.Navigator screenOptions={{
       tabBarStyle: styles.tabBar,
+      backgroundColor: 'transparent',
       tabBarActiveTintColor: COLORS.primary,
       headerStyle: { backgroundColor: COLORS.primary },
       headerTintColor: 'white',
@@ -58,16 +61,19 @@ function BottomTabNavigatior() {
       <BottomTabs.Screen name='UserProfileScreen' component={UserProfileScreen} options={{
         title: 'User',
         tabBarLabel: 'Profile',
+        headerShown: false,
         tabBarIcon: ({ color, size }) => (<Ionicons name="body-sharp" size={size} color={color} />)
       }} />
     </BottomTabs.Navigator>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   tabBar: {
-    borderRadius: 20,
-    elevation: 4,
+    width: '375@ms',
+    height: '58@vs',
+    borderRadius: '32@s',
+    elevation: '4@s',
   }
 })
 
@@ -78,9 +84,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName='HomeLoginScreen'>
           <Stack.Screen name="HomeLoginScreen" component={HomeLoginScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+          <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
           <Stack.Screen
             name="BottomTabNavigatior"
             component={BottomTabNavigatior}
@@ -92,9 +98,10 @@ export default function App() {
           <Stack.Screen name='CalendarScreen' component={CalendarScreen} options={{ headerShown: false }} />
           <Stack.Screen name='PaymentScreen' component={PaymentScreen} options={{ headerShown: false }} />
           <Stack.Screen name='ReserveConfirmationScreen' component={ReserveConfirmationScreen} options={{ headerShown: false }} />
+          <Stack.Screen name='RatedOurAppScreen' component={RatedOurAppScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </>
 
   );
